@@ -1,5 +1,6 @@
 package com.jonathan.server.controller;
 
+import com.jonathan.server.dto.CharacterDTO;
 import com.jonathan.server.entity.CharactersEntity;
 import com.jonathan.server.services.CharacterService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,8 +26,9 @@ public class CharacterController {
     }
 
     @GetMapping(path = "/characters/")
-    public List<CharactersEntity> getCharacters(@RequestParam Integer page) {
-        return characterService.getAll(page);
+    public CharacterDTO getCharacters(@RequestParam Integer page) {
+        CharacterDTO characterDTO = characterService.getAll(page);
+        return characterDTO;
     }
 
     @GetMapping(path = "/{id}")

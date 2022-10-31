@@ -9,7 +9,13 @@ import java.util.List;
 @Data
 public class CharacterDTO {
 
+    private InfoDto info;
     private List<CharactersEntity> results;
 
-    private List<Integer> info;
+
+
+    public CharacterDTO(InfoDto info, List<CharactersEntity> results) {
+        this.info = info;
+        this.results = results;
+    }
 }

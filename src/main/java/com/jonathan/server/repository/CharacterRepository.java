@@ -14,7 +14,10 @@ public interface CharacterRepository extends JpaRepository<CharactersEntity, Int
     @Query(nativeQuery = true, value = "SELECT name FROM characters WHERE id = :givenId")
     public String selectName(@Param("givenId") Integer givenId);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM characters LIMIT 20 OFFSET :page * 20")
+    @Query(nativeQuery = true, value = "SELECT * FROM characters LIMIT 20 OFFSET (:page-1) * 20")
     public List<CharactersEntity> selectAll(@Param("page") Integer page);
+
+    @Query(nativeQuery = true, value = "SELECT COUNT(*) as total FROM characters")
+    public Integer info();
 
 }

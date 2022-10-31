@@ -1,14 +1,11 @@
 package com.jonathan.server.services.interfaces;
 
 
-import com.jonathan.server.entity.CharactersEntity;
-
-import java.util.List;
-import java.util.Optional;
+import com.jonathan.server.dto.CharacterDTO;
 
 public interface ICharacter {
 
-    public List<CharactersEntity> getAll(Integer page);
+    public CharacterDTO getAll(Integer page);
 
     public String getOne(Integer id);
 
