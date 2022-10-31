@@ -1,16 +1,17 @@
 package com.jonathan.server.services.interfaces;
 
-import com.jonathan.server.domain.Character;
 
+import com.jonathan.server.entity.CharactersEntity;
+
+import java.util.List;
 import java.util.Optional;
 
 public interface ICharacter {
 
-    public Iterable<Character> getAll();
+    public List<CharactersEntity> getAll(Integer page);
 
-    public Optional<Character> getOne(Integer id);
+    public String getOne(Integer id);
 
     public String charName(Integer id);
-
 
 }

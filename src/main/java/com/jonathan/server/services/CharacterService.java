@@ -1,10 +1,9 @@
 package com.jonathan.server.services;
 
-import com.jonathan.server.domain.Character;
+import com.jonathan.server.entity.CharactersEntity;
 import com.jonathan.server.repository.CharacterRepository;
 import com.jonathan.server.services.interfaces.ICharacter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +16,13 @@ public class CharacterService implements ICharacter {
     private CharacterRepository characterRepository;
 
     @Override
-    public List<Character> getAll() {
-        return characterRepository.findAll();
+    public List<CharactersEntity> getAll(Integer page) {
+        return characterRepository.selectAll(page);
     }
 
     @Override
-    public Optional<Character> getOne(Integer id) {
-        return characterRepository.findById(id);
+    public String getOne(Integer id) {
+        return characterRepository.selectName(id);
     }
 
     @Override
